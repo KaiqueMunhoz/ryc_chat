@@ -6,6 +6,7 @@ class AuthForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.all(20),
       child: Form(
         child: Column(
           children: [
