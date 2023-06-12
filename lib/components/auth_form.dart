@@ -5,6 +5,23 @@ class AuthForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Card(
+      child: Form(
+        child: Column(
+          children: [
+            TextFormField(
+              decoration: const InputDecoration(labelText: 'Nome'),
+            ),
+            TextFormField(
+              decoration: const InputDecoration(labelText: 'E-mail'),
+            ),
+            TextFormField(
+              obscureText: true,
+              decoration: const InputDecoration(labelText: 'Senha'),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
