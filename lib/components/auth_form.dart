@@ -27,6 +27,10 @@ class AuthForm extends StatelessWidget {
                 onPressed: () {},
                 child: const Text('Entrar'),
               ),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Criar uma nova conta?'),
+              )
             ],
           ),
         ),
