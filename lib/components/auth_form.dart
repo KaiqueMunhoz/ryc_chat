@@ -22,6 +22,11 @@ class AuthForm extends StatelessWidget {
                 obscureText: true,
                 decoration: const InputDecoration(labelText: 'Senha'),
               ),
+              const SizedBox(height: 12),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Entrar'),
+              ),
             ],
           ),
         ),
