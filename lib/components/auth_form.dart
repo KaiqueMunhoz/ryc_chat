@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:ryc_chat/components/user_image_picker.dart';
 import 'package:ryc_chat/models/auth_form_data.dart';
@@ -17,6 +19,8 @@ class AuthForm extends StatefulWidget {
 class _AuthFormState extends State<AuthForm> {
   final _formKey = GlobalKey<FormState>();
   final _formData = AuthFormData();
+
+  void _handleImagePick(File image) {}
 
   void _submitForm() {
     final bool isValid = _formKey.currentState?.validate() ?? false;
