@@ -19,9 +19,8 @@ class AuthMockService implements AuthService {
   }
 
   @override
-  Future<void> login({required String email, required String password}) {
-    // TODO: implement login
-    throw UnimplementedError();
+  Future<void> login({required String email, required String password}) async {
+    _updateUser(_users[email]);
   }
 
   @override
@@ -30,11 +29,12 @@ class AuthMockService implements AuthService {
   }
 
   @override
-  Future<void> signup(
-      {required String nome,
-      required String email,
-      required String password,
-      required File image}) {
+  Future<void> signup({
+    required String nome,
+    required String email,
+    required String password,
+    required File image,
+  }) {
     // TODO: implement signup
     throw UnimplementedError();
   }
