@@ -69,7 +69,7 @@ class _AuthFormState extends State<AuthForm> {
               ),
               const SizedBox(height: 12),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: _submitForm,
                 child: Text(
                   _formData.isLogin ? 'Entrar' : 'Cadastrar',
                 ),
