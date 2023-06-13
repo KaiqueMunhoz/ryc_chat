@@ -10,7 +10,11 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  void _handleSubmit(AuthFormData formData) {}
+  bool _isLoading = false;
+
+  void _handleSubmit(AuthFormData formData) {
+    setState(() => _isLoading = true);
+  }
 
   @override
   Widget build(BuildContext context) {
