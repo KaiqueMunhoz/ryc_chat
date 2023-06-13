@@ -14,8 +14,9 @@ class AuthMockService implements AuthService {
   });
 
   @override
-  // TODO: implement currentUser
-  ChatUser? get currentUser => throw UnimplementedError();
+  ChatUser? get currentUser {
+    return _currentUser;
+  }
 
   @override
   Future<void> login({required String email, required String password}) {
