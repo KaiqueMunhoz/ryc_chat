@@ -13,7 +13,8 @@ class _AuthFormState extends State<AuthForm> {
   final _formData = AuthFormData();
 
   void _submitForm() {
-    _formKey.currentState?.validate();
+    final bool isValid = _formKey.currentState?.validate() ?? false;
+    if (!isValid) return;
   }
 
   @override
