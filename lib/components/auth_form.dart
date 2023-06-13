@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ryc_chat/models/auth_form_data.dart';
 
 class AuthForm extends StatefulWidget {
   const AuthForm({Key? key}) : super(key: key);
@@ -9,6 +10,7 @@ class AuthForm extends StatefulWidget {
 
 class _AuthFormState extends State<AuthForm> {
   final _formKey = GlobalKey<FormState>();
+  final _formData = AuthFormData();
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +38,12 @@ class _AuthFormState extends State<AuthForm> {
                 child: const Text('Entrar'),
               ),
               TextButton(
-                onPressed: () {},
                 child: const Text('Criar uma nova conta?'),
+                onPressed: () {
+                  setState(() {
+                    _formData.toggleAuthMode();
+                  });
+                },
               )
             ],
           ),
