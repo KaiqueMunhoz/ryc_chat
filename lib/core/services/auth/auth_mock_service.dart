@@ -8,6 +8,10 @@ class AuthMockService implements AuthService {
   static Map<String, ChatUser> _users = {};
   static ChatUser? _currentUser;
   static MultiStreamController<ChatUser?>? _controller;
+  static final _userStream = Stream<ChatUser?>.multi((controller) {
+    _controller = controller;
+    _updateUser(null);
+  });
 
   @override
   // TODO: implement currentUser
