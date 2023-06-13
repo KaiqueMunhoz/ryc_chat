@@ -11,9 +11,11 @@ class AuthPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: const Center(
+      body: Center(
         child: SingleChildScrollView(
-          child: AuthForm(),
+          child: AuthForm(
+            onSubmit: _handleSubmit,
+          ),
         ),
       ),
     );
