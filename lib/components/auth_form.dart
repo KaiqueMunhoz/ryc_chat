@@ -42,7 +42,9 @@ class _AuthFormState extends State<AuthForm> {
               if (_formData.isSignup)
                 Column(
                   children: [
-                    const UserImagePicker(),
+                    UserImagePicker(
+                      onImagePick: _handleImagePick,
+                    ),
                     TextFormField(
                       key: const ValueKey('name'),
                       initialValue: _formData.name,
