@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-class UserImagePicker extends StatelessWidget {
+class UserImagePicker extends StatefulWidget {
   final void Function(File image) onImagePick;
 
   const UserImagePicker({
@@ -10,6 +10,11 @@ class UserImagePicker extends StatelessWidget {
     required this.onImagePick,
   }) : super(key: key);
 
+  @override
+  State<UserImagePicker> createState() => _UserImagePickerState();
+}
+
+class _UserImagePickerState extends State<UserImagePicker> {
   @override
   Widget build(BuildContext context) {
     return Column(
