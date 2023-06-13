@@ -55,6 +55,13 @@ class _AuthFormState extends State<AuthForm> {
                 onChanged: (password) => _formData.password = password,
                 obscureText: true,
                 decoration: const InputDecoration(labelText: 'Senha'),
+                validator: (_password) {
+                  final password = _password ?? '';
+                  if (password.length < 6) {
+                    return 'Senha deve ter no mínimo 6 caracteres';
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 12),
               ElevatedButton(
