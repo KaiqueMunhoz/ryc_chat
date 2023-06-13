@@ -35,18 +35,22 @@ class _AuthFormState extends State<AuthForm> {
           child: Column(
             children: [
               if (_formData.isSignup)
-                TextFormField(
-                  key: const ValueKey('name'),
-                  initialValue: _formData.name,
-                  onChanged: (name) => _formData.name = name,
-                  decoration: const InputDecoration(labelText: 'Nome'),
-                  validator: (_name) {
-                    final name = _name ?? '';
-                    if (name.trim().length < 5) {
-                      return 'Nome deve ter no mínimo 5 caracteres';
-                    }
-                    return null;
-                  },
+                Column(
+                  children: [
+                    TextFormField(
+                      key: const ValueKey('name'),
+                      initialValue: _formData.name,
+                      onChanged: (name) => _formData.name = name,
+                      decoration: const InputDecoration(labelText: 'Nome'),
+                      validator: (_name) {
+                        final name = _name ?? '';
+                        if (name.trim().length < 5) {
+                          return 'Nome deve ter no mínimo 5 caracteres';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
                 ),
               TextFormField(
                 key: const ValueKey('email'),
