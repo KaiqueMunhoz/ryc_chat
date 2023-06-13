@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:ryc_chat/components/auth_form.dart';
 import 'package:ryc_chat/models/auth_form_data.dart';
 
-class AuthPage extends StatelessWidget {
+class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
 
+  @override
+  State<AuthPage> createState() => _AuthPageState();
+}
+
+class _AuthPageState extends State<AuthPage> {
   void _handleSubmit(AuthFormData formData) {}
 
   @override
