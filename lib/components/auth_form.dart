@@ -22,6 +22,14 @@ class _AuthFormState extends State<AuthForm> {
 
   void _handleImagePick(File image) {}
 
+  void _showError(String msg) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(msg),
+      ),
+    );
+  }
+
   void _submitForm() {
     final bool isValid = _formKey.currentState?.validate() ?? false;
     if (!isValid) return;
