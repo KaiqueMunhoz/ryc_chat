@@ -38,7 +38,11 @@ class _AuthFormState extends State<AuthForm> {
                 child: const Text('Entrar'),
               ),
               TextButton(
-                child: const Text('Criar uma nova conta?'),
+                child: Text(
+                  _formData.isLogin
+                      ? 'Criar uma nova conta?'
+                      : 'Já possui conta?',
+                ),
                 onPressed: () {
                   setState(() {
                     _formData.toggleAuthMode();
