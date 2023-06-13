@@ -30,7 +30,7 @@ class AuthMockService implements AuthService {
 
   @override
   Future<void> signup({
-    required String nome,
+    required String name,
     required String email,
     required String password,
     required File image,
