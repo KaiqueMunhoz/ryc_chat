@@ -22,9 +22,10 @@ class _AuthFormState extends State<AuthForm> {
           key: _formKey,
           child: Column(
             children: [
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'Nome'),
-              ),
+              if (_formData.isSignup)
+                TextFormField(
+                  decoration: const InputDecoration(labelText: 'Nome'),
+                ),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'E-mail'),
               ),
