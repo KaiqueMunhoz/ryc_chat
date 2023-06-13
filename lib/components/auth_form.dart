@@ -28,6 +28,13 @@ class _AuthFormState extends State<AuthForm> {
                   initialValue: _formData.name,
                   onChanged: (name) => _formData.name = name,
                   decoration: const InputDecoration(labelText: 'Nome'),
+                  validator: (_name) {
+                    final name = _name ?? '';
+                    if (name.trim().length < 5) {
+                      return 'Nome deve ter no mínimo 5 caracteres';
+                    }
+                    return null;
+                  },
                 ),
               TextFormField(
                 key: const ValueKey('email'),
