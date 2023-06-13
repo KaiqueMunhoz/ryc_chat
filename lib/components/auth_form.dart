@@ -25,14 +25,17 @@ class _AuthFormState extends State<AuthForm> {
               if (_formData.isSignup)
                 TextFormField(
                   key: const ValueKey('name'),
+                  initialValue: _formData.name,
                   decoration: const InputDecoration(labelText: 'Nome'),
                 ),
               TextFormField(
                 key: const ValueKey('email'),
+                initialValue: _formData.email,
                 decoration: const InputDecoration(labelText: 'E-mail'),
               ),
               TextFormField(
                 key: const ValueKey('password'),
+                initialValue: _formData.password,
                 obscureText: true,
                 decoration: const InputDecoration(labelText: 'Senha'),
               ),
