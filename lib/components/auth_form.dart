@@ -26,16 +26,19 @@ class _AuthFormState extends State<AuthForm> {
                 TextFormField(
                   key: const ValueKey('name'),
                   initialValue: _formData.name,
+                  onChanged: (name) => _formData.name = name,
                   decoration: const InputDecoration(labelText: 'Nome'),
                 ),
               TextFormField(
                 key: const ValueKey('email'),
                 initialValue: _formData.email,
+                onChanged: (email) => _formData.email = email,
                 decoration: const InputDecoration(labelText: 'E-mail'),
               ),
               TextFormField(
                 key: const ValueKey('password'),
                 initialValue: _formData.password,
+                onChanged: (password) => _formData.password = password,
                 obscureText: true,
                 decoration: const InputDecoration(labelText: 'Senha'),
               ),
