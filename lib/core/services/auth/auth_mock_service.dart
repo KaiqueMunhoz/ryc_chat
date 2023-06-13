@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:ryc_chat/core/models/chat_user.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
@@ -34,9 +35,16 @@ class AuthMockService implements AuthService {
     required String email,
     required String password,
     required File image,
-  }) {
-    // TODO: implement signup
-    throw UnimplementedError();
+  }) async {
+    final newUser = ChatUser(
+      id: Random().nextDouble().toString(),
+      name: name,
+      email: email,
+      imageURL: image.path,
+    );
+
+    _users.putIfAbsent(email, () => newUser);
+    _updateUser(newUser);
   }
 
   @override
