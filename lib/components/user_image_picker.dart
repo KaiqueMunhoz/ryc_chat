@@ -56,7 +56,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
               const Text('Adicionar Imagem')
             ],
           ),
-          onPressed: () {},
+          onPressed: _pickImage,
         ),
       ],
     );
