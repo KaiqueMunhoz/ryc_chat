@@ -41,6 +41,13 @@ class _AuthFormState extends State<AuthForm> {
                 initialValue: _formData.email,
                 onChanged: (email) => _formData.email = email,
                 decoration: const InputDecoration(labelText: 'E-mail'),
+                validator: (_email) {
+                  final email = _email ?? '';
+                  if (!email.contains('@')) {
+                    return 'E-mail informado não é válido';
+                  }
+                  return null;
+                },
               ),
               TextFormField(
                 key: const ValueKey('password'),
