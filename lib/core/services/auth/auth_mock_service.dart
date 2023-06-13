@@ -38,4 +38,9 @@ class AuthMockService implements AuthService {
   @override
   // TODO: implement userChanges
   Stream<ChatUser?> get userChanges => throw UnimplementedError();
+
+  static void _updateUser(ChatUser? user) {
+    _currentUser = user;
+    _controller?.add(_currentUser);
+  }
 }
