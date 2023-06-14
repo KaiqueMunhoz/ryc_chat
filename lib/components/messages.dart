@@ -14,8 +14,11 @@ class Messages extends StatelessWidget {
           return Center(
             child: CircularProgressIndicator(),
           );
+        } else if (!snapshot.hasData) {
+          return Center(
+            child: Text('Sem Dados. Vamos conversar?'),
+          );
         }
-        return Container();
       },
     );
   }
