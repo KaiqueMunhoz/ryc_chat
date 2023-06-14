@@ -22,6 +22,7 @@ class Messages extends StatelessWidget {
         } else {
           final msgs = snapshot.data!;
           return ListView.builder(
+            reverse: true,
             itemCount: msgs.length,
             itemBuilder: (_, index) {
               return Text(msgs[index].text);
