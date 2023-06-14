@@ -20,7 +20,9 @@ class _AuthFormState extends State<AuthForm> {
   final _formKey = GlobalKey<FormState>();
   final _formData = AuthFormData();
 
-  void _handleImagePick(File image) {}
+  void _handleImagePick(File image) {
+    _formData.image = image;
+  }
 
   void _showError(String msg) {
     ScaffoldMessenger.of(context).showSnackBar(
