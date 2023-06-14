@@ -13,17 +13,24 @@ class MessagesBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: belongsToCurrentUser
-            ? Colors.grey.shade300
-            : Theme.of(context).accentColor,
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
+    return Row(
+      mainAxisAlignment: belongsToCurrentUser
+          ? MainAxisAlignment.end
+          : MainAxisAlignment.start,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: belongsToCurrentUser
+                ? Colors.grey.shade300
+                : Theme.of(context).accentColor,
+            borderRadius: BorderRadius.all(
+              Radius.circular(12),
+            ),
+          ),
+          width: 180,
+          child: Text(message.text),
         ),
-      ),
-      width: 180,
-      child: Text(message.text),
+      ],
     );
   }
 }
