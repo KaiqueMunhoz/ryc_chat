@@ -16,7 +16,28 @@ class ChatPage extends StatelessWidget {
               Icons.more_vert,
               color: Theme.of(context).primaryIconTheme.color,
             ),
-            items: [],
+            items: [
+              DropdownMenuItem(
+                value: 'logout',
+                child: Container(
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.exit_to_app,
+                        color: Colors.black87,
+                      ),
+                      SizedBox(width: 10),
+                      Text('Sair'),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+            onChanged: (value) {
+              if (value == 'logout') {
+                AuthService().logout();
+              }
+            },
           ),
         ],
       ),
