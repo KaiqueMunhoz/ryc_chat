@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ryc_chat/components/auth_form.dart';
 import 'package:ryc_chat/core/models/auth_form_data.dart';
-import 'package:ryc_chat/core/services/auth/auth_mock_service.dart';
+import 'package:ryc_chat/core/services/auth/auth_service.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
@@ -17,18 +17,16 @@ class _AuthPageState extends State<AuthPage> {
     try {
       setState(() => _isLoading = true);
       if (formData.isLogin) {
-        await AuthMockService().login(
+        await AuthService().login(
           email: formData.email,
           password: formData.password,
         );
       } else {
-        await AuthMockService()
-            .signup(
-          name: formData.name,
-          email: formData.email,
-          password: formData.password,
-          image: formData.image
-        );
+        await AuthService().signup(
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+            image: formData.image);
       }
     } catch (error) {} finally {
       setState(() => _isLoading = false);
