@@ -32,6 +32,7 @@ class Messages extends StatelessWidget {
               final bool _isCurrentUser = currentUser?.id == _message.id;
 
               return MessagesBubble(
+                key: ValueKey(_message.id),
                 message: _message,
                 belongsToCurrentUser: _isCurrentUser,
               );
