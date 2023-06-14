@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ryc_chat/core/models/chat_message.dart';
 import 'package:ryc_chat/core/services/chat/chat_mock_service.dart';
 import 'package:ryc_chat/core/services/chat/chat_service.dart';
 
@@ -7,7 +8,7 @@ class Messages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
+    return StreamBuilder<List<ChatMessage>>(
       stream: ChatService().messagesStream(),
       builder: (_, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -18,6 +19,8 @@ class Messages extends StatelessWidget {
           return Center(
             child: Text('Sem Dados. Vamos conversar?'),
           );
+        } else {
+          return Container();
         }
       },
     );
