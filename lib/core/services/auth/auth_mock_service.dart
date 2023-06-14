@@ -7,9 +7,9 @@ import 'package:ryc_chat/core/services/auth/auth_service.dart';
 
 class AuthMockService implements AuthService {
   static final _defaultUser = ChatUser(
-    id: '1',
-    name: 'Teste',
-    email: 'teste@',
+    id: '456',
+    name: 'Ana',
+    email: 'Ana@',
     imageURL: 'assets/images/avatar.png',
   );
 
