@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ryc_chat/components/messages.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
 
 class ChatPage extends StatelessWidget {
@@ -10,16 +11,12 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Cod3r Chat'),
       ),
-      body: Center(
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
-              child: Text('Logout'),
-              onPressed: () {
-                AuthService().logout();
-              },
-            )
+            Expanded(
+              child: Messages(),
+            ),
           ],
         ),
       ),
