@@ -11,7 +11,7 @@ abstract class AuthService {
     required String name,
     required String email,
     required String password,
-    required File image,
+    File? image,
   });
 
   Future<void> login({
