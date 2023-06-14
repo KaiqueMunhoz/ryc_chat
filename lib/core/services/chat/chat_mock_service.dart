@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:ryc_chat/core/models/chat_user.dart';
 import 'package:ryc_chat/core/models/chat_message.dart';
@@ -17,7 +18,22 @@ class ChatMockService implements ChatService {
   }
 
   @override
-  Future<ChatMessage> save({required String text, required ChatUser user}) {
-    throw UnimplementedError();
+  Future<ChatMessage> save({
+    required String text,
+    required ChatUser user,
+  }) async {
+    final newMessage = ChatMessage(
+      id: Random().nextDouble().toString(),
+      text: text,
+      createdAt: DateTime.now(),
+      userId: user.id,
+      userName: user.name,
+      userImageURL: user.imageURL,
+    );
+
+    _msgs.add(newMessage);
+    _controller?.add(_msgs);
+
+    return newMessage;
   }
 }
