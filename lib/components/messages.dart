@@ -20,7 +20,13 @@ class Messages extends StatelessWidget {
             child: Text('Sem Dados. Vamos conversar?'),
           );
         } else {
-          return Container();
+          final msgs = snapshot.data!;
+          return ListView.builder(
+            itemCount: msgs.length,
+            itemBuilder: (_, index) {
+              return Text(msgs[index].text);
+            },
+          );
         }
       },
     );
