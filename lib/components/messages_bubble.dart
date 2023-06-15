@@ -80,6 +80,8 @@ class MessagesBubble extends StatelessWidget {
                   ),
                   Text(
                     message.text,
+                    textAlign:
+                        belongsToCurrentUser ? TextAlign.end : TextAlign.start,
                     style: TextStyle(
                       color: belongsToCurrentUser ? Colors.black : Colors.white,
                     ),
