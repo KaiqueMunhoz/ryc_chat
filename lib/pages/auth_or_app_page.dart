@@ -9,16 +9,14 @@ class AuthOrAppPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: StreamBuilder(
-        stream: AuthService().userChanges,
-        builder: (_, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return LoadingPage();
-          }
-          return snapshot.hasData ? ChatPage() : AuthPage();
-        },
-      ),
+    return StreamBuilder(
+      stream: AuthService().userChanges,
+      builder: (_, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return LoadingPage();
+        }
+        return snapshot.hasData ? ChatPage() : AuthPage();
+      },
     );
   }
 }
