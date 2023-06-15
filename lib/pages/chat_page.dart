@@ -42,6 +42,30 @@ class ChatPage extends StatelessWidget {
               },
             ),
           ),
+          Stack(
+            children: [
+              IconButton(
+                icon: Icon(
+                  Icons.notifications,
+                ),
+                onPressed: () {},
+              ),
+              Positioned(
+                top: 5,
+                right: 5,
+                child: CircleAvatar(
+                  maxRadius: 10,
+                  backgroundColor: Colors.red.shade800,
+                  child: Text(
+                    '0',
+                    style: TextStyle(
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
       body: SafeArea(
