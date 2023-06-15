@@ -15,6 +15,7 @@ class NewMessage extends StatelessWidget {
 
       if (user != null) {
         await ChatService().save(text: _message, user: user);
+        _messageController.clear();
       }
     }
 
