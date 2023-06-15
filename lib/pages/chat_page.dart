@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ryc_chat/components/messages.dart';
 import 'package:ryc_chat/components/new_message.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
+import 'package:provider/provider.dart';
+import 'package:ryc_chat/core/services/notification/chat_notification_service.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -57,7 +59,7 @@ class ChatPage extends StatelessWidget {
                   maxRadius: 10,
                   backgroundColor: Colors.red.shade800,
                   child: Text(
-                    '0',
+                    '${Provider.of<ChatNotificationService>(context).itemsCount}',
                     style: TextStyle(
                       fontSize: 12,
                     ),
