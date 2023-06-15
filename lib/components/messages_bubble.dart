@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:ryc_chat/core/models/chat_message.dart';
 
 class MessagesBubble extends StatelessWidget {
+  static const String _defaultImage = 'assets/images/avatar.png';
+
   final ChatMessage message;
   final bool belongsToCurrentUser;
 
@@ -12,8 +16,19 @@ class MessagesBubble extends StatelessWidget {
   }) : super(key: key);
 
   Widget _showUserImage(String imageURL) {
+    ImageProvider? provider;
+    final uri = Uri.parse(imageURL);
+
+    if (uri.path.contains(_defaultImage)) {
+      provider = AssetImage(_defaultImage);
+    } else if (uri.scheme.contains('http')) {
+      provider = NetworkImage(uri.toString());
+    } else {
+      provider = FileImage(File(uri.toString()));
+    }
+
     return CircleAvatar(
-      backgroundColor: Colors.red,
+      backgroundImage: provider,
     );
   }
 
