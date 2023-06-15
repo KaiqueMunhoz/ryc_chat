@@ -4,6 +4,7 @@ import 'package:ryc_chat/components/new_message.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
 import 'package:provider/provider.dart';
 import 'package:ryc_chat/core/services/notification/chat_notification_service.dart';
+import 'package:ryc_chat/pages/notification_page.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -50,7 +51,15 @@ class ChatPage extends StatelessWidget {
                 icon: Icon(
                   Icons.notifications,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) {
+                        return NotificationPage();
+                      },
+                    ),
+                  );
+                },
               ),
               Positioned(
                 top: 5,
