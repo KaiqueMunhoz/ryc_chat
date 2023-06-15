@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "786606514470",
-    "project_id": "cod3r-chat-1b2d4",
-    "storage_bucket": "cod3r-chat-1b2d4.appspot.com"
+    "project_number": "742141137365",
+    "project_id": "ryc-chat",
+    "storage_bucket": "ryc-chat.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:786606514470:android:a3fdd4cd6f11cc5804e1e7",
+        "mobilesdk_app_id": "1:742141137365:android:cb3bdc5853d1a578682d5c",
         "android_client_info": {
-          "package_name": "br.com.cod3r.chat"
+          "package_name": "br.com.renew.ryc_chat"
         }
       },
       "oauth_client": [
         {
-          "client_id": "786606514470-mr2guo6g5ciensiutn8uj145nu8nlqti.apps.googleusercontent.com",
+          "client_id": "742141137365-uv0an6i3qc1vm28263j28veosqiot5kt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDjgX3T7n9tksF_vHBdKoUQ9VBFYbwUFak"
+          "current_key": "AIzaSyCQGP9rQ6CAHs2PmSKtw_Go9kFjklD8dWw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "786606514470-mr2guo6g5ciensiutn8uj145nu8nlqti.apps.googleusercontent.com",
+              "client_id": "742141137365-uv0an6i3qc1vm28263j28veosqiot5kt.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
