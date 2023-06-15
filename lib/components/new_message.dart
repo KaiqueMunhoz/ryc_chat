@@ -7,8 +7,8 @@ class NewMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String _message = '';
     final _messageController = TextEditingController();
+    String _message = '';
 
     Future<void> _sendMessage() async {
       final user = AuthService().currentUser;
