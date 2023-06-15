@@ -7,14 +7,14 @@ class NewMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String _enteredMessage = '';
+    String _message = '';
     final _messageController = TextEditingController();
 
     Future<void> _sendMessage() async {
       final user = AuthService().currentUser;
 
       if (user != null) {
-        await ChatService().save(text: _enteredMessage, user: user);
+        await ChatService().save(text: _message, user: user);
       }
     }
 
@@ -28,7 +28,7 @@ class NewMessage extends StatelessWidget {
         ),
         IconButton(
           icon: Icon(Icons.send),
-          onPressed: _enteredMessage.trim().isEmpty ? null : _sendMessage,
+          onPressed: _message.trim().isEmpty ? null : _sendMessage,
         ),
       ],
     );
