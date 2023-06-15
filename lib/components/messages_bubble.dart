@@ -23,8 +23,15 @@ class MessagesBubble extends StatelessWidget {
             color: belongsToCurrentUser
                 ? Colors.grey.shade300
                 : Theme.of(context).accentColor,
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12),
+              topRight: Radius.circular(12),
+              bottomLeft: belongsToCurrentUser
+                  ? Radius.circular(12)
+                  : Radius.circular(0),
+              bottomRight: belongsToCurrentUser
+                  ? Radius.circular(0)
+                  : Radius.circular(12),
             ),
           ),
           width: 180,
