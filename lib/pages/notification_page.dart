@@ -8,6 +8,7 @@ class NotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final service = Provider.of<ChatNotificationService>(context);
+    final items = service.items;
 
     return Scaffold(
       appBar: AppBar(
@@ -16,7 +17,11 @@ class NotificationPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: service.itemsCount,
         itemBuilder: (_, index) {
-          return Container();
+          return ListTile(
+            title: Text(items[index].title),
+            subtitle: Text(items[index].body),
+            onTap: () => service.remove(index),
+          );
         },
       ),
     );
