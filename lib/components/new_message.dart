@@ -5,6 +5,20 @@ class NewMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    String _enteredMessage = '';
+
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            decoration: InputDecoration(labelText: 'Enviar mensagem'),
+          ),
+        ),
+        IconButton(
+          icon: Icon(Icons.send),
+          onPressed: _enteredMessage.trim().isEmpty ? null : () {},
+        ),
+      ],
+    );
   }
 }
