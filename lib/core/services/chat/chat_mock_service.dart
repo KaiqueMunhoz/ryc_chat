@@ -13,7 +13,7 @@ class ChatMockService implements ChatService {
       createdAt: DateTime.now(),
       userId: '123',
       userName: 'Bia',
-      userImageURL: '',
+      userImageURL: 'assets/images/avatar.png',
     ),
     ChatMessage(
       id: '2',
@@ -29,7 +29,7 @@ class ChatMockService implements ChatService {
       createdAt: DateTime.now(),
       userId: '123',
       userName: 'Bia',
-      userImageURL: '',
+      userImageURL: 'assets/images/avatar.png',
     ),
   ];
   static MultiStreamController<List<ChatMessage>>? _controller;
