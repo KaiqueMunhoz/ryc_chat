@@ -11,6 +11,12 @@ class MessagesBubble extends StatelessWidget {
     required this.belongsToCurrentUser,
   }) : super(key: key);
 
+  Widget _showUserImage(String imageURL) {
+    return CircleAvatar(
+      backgroundColor: Colors.red,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -69,9 +75,7 @@ class MessagesBubble extends StatelessWidget {
           top: 0,
           left: belongsToCurrentUser ? null : 165,
           right: belongsToCurrentUser ? 165 : null,
-          child: CircleAvatar(
-            backgroundColor: Colors.red,
-          ),
+          child: _showUserImage(''),
         ),
       ],
     );
