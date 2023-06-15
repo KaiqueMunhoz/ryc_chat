@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:ryc_chat/components/messages.dart';
 import 'package:ryc_chat/components/new_message.dart';
+import 'package:ryc_chat/core/models/chat_notification.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
 import 'package:provider/provider.dart';
 import 'package:ryc_chat/core/services/notification/chat_notification_service.dart';
@@ -88,6 +91,17 @@ class ChatPage extends StatelessWidget {
             NewMessage()
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          Provider.of<ChatNotificationService>(context, listen: false).add(
+            ChatNotification(
+              title: 'Notificação de teste',
+              body: Random().nextDouble().toString(),
+            ),
+          );
+        },
       ),
     );
   }
