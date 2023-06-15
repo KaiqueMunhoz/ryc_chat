@@ -8,4 +8,8 @@ class PushNotificationService with ChangeNotifier {
     _items.add(notification);
     notifyListeners();
   }
+
+  void remove(int index) {
+    _items.removeAt(index);
+  }
 }
