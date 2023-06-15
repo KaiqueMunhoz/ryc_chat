@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ryc_chat/components/messages.dart';
+import 'package:ryc_chat/components/new_message.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
 
 class ChatPage extends StatelessWidget {
@@ -47,6 +48,7 @@ class ChatPage extends StatelessWidget {
             Expanded(
               child: Messages(),
             ),
+            NewMessage()
           ],
         ),
       ),
