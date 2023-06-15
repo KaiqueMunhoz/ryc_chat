@@ -30,6 +30,7 @@ class _NewMessageState extends State<NewMessage> {
           child: TextField(
             decoration: InputDecoration(labelText: 'Enviar mensagem'),
             controller: _messageController,
+            onChanged: (msg) => setState(() => _message = msg),
           ),
         ),
         IconButton(
