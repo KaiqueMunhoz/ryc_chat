@@ -2,23 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
 import 'package:ryc_chat/core/services/chat/chat_service.dart';
 
-class NewMessage extends StatelessWidget {
+class NewMessage extends StatefulWidget {
   const NewMessage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final _messageController = TextEditingController();
-    String _message = '';
+  _NewMessageState createState() => _NewMessageState();
+}
 
-    Future<void> _sendMessage() async {
-      final user = AuthService().currentUser;
+class _NewMessageState extends State<NewMessage> {
+  final _messageController = TextEditingController();
+  String _message = '';
 
-      if (user != null) {
-        await ChatService().save(text: _message, user: user);
-        _messageController.clear();
-      }
+  Future<void> _sendMessage() async {
+    final user = AuthService().currentUser;
+
+    if (user != null) {
+      await ChatService().save(text: _message, user: user);
+      _messageController.clear();
     }
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
