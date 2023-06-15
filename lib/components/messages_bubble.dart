@@ -28,6 +28,10 @@ class MessagesBubble extends StatelessWidget {
             ),
           ),
           width: 180,
+          margin: const EdgeInsets.symmetric(
+            vertical: 15,
+            horizontal: 8,
+          ),
           padding: const EdgeInsets.symmetric(
             vertical: 10,
             horizontal: 16,
