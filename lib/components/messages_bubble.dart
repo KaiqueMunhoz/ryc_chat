@@ -28,7 +28,22 @@ class MessagesBubble extends StatelessWidget {
             ),
           ),
           width: 180,
-          child: Text(message.text),
+          child: Column(
+            children: [
+              Text(
+                message.userName,
+                style: TextStyle(
+                    color: belongsToCurrentUser ? Colors.black : Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                message.text,
+                style: TextStyle(
+                  color: belongsToCurrentUser ? Colors.black : Colors.white,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
