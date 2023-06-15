@@ -8,6 +8,7 @@ class NewMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String _enteredMessage = '';
+    final _messageController = TextEditingController();
 
     Future<void> _sendMessage() async {
       final user = AuthService().currentUser;
@@ -22,6 +23,7 @@ class NewMessage extends StatelessWidget {
         Expanded(
           child: TextField(
             decoration: InputDecoration(labelText: 'Enviar mensagem'),
+            controller: _messageController,
           ),
         ),
         IconButton(
