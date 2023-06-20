@@ -16,7 +16,11 @@ class AuthOrAppPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: init(context),
-      builder: (context, snapshot) {
+      builder: (_, _snapshot) {
+        if (_snapshot.connectionState == ConnectionState.waiting) {
+          return LoadingPage();
+        }
+
         return StreamBuilder(
           stream: AuthService().userChanges,
           builder: (_, snapshot) {
