@@ -7,9 +7,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthFirebaseService implements AuthService {
   static ChatUser? _currentUser;
-  static MultiStreamController<ChatUser?>? _controller;
-  static final _userStream = Stream<ChatUser?>.multi((controller) {
-    _controller = controller;
+  static final _userStream = Stream<ChatUser?>.multi((controller) async {
+    final authChanges = FirebaseAuth.instance.authStateChanges();
+    await for (final user in authChanges) {
+      _currentUser = user == null
+          ? null
+          : ChatUser(
+              id: user.uid,
+              name: user.displayName ?? user.email!.split('@')[0],
+              email: user.email!,
+              imageURL: user.photoURL ?? 'assets/images/avatar.png',
+            );
+      controller.add(_currentUser);
+    }
   });
 
   @override
