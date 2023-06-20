@@ -36,7 +36,8 @@ class AuthFirebaseService implements AuthService {
     File? image,
   }) async {
     final auth = FirebaseAuth.instance;
-    final UserCredential credentials = await auth.signInWithEmailAndPassword(
+    final UserCredential credentials =
+        await auth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
