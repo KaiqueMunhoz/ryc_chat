@@ -10,14 +10,7 @@ class AuthFirebaseService implements AuthService {
   static final _userStream = Stream<ChatUser?>.multi((controller) async {
     final authChanges = FirebaseAuth.instance.authStateChanges();
     await for (final user in authChanges) {
-      _currentUser = user == null
-          ? null
-          : ChatUser(
-              id: user.uid,
-              name: user.displayName ?? user.email!.split('@')[0],
-              email: user.email!,
-              imageURL: user.photoURL ?? 'assets/images/avatar.png',
-            );
+      _currentUser = user == null ? null : _toChatUser(user);
       controller.add(_currentUser);
     }
   });
@@ -58,5 +51,14 @@ class AuthFirebaseService implements AuthService {
   @override
   Stream<ChatUser?> get userChanges {
     return _userStream;
+  }
+
+  static ChatUser _toChatUser(User user) {
+    return ChatUser(
+      id: user.uid,
+      name: user.displayName ?? user.email!.split('@')[0],
+      email: user.email!,
+      imageURL: user.photoURL ?? 'assets/images/avatar.png',
+    );
   }
 }
