@@ -63,6 +63,7 @@ class AuthFirebaseService implements AuthService {
     final imageUrl = await _uploadUserImage(image, imageName);
 
     credentials.user?.updateDisplayName(name);
+    credentials.user?.updatePhotoURL(imageUrl);
   }
 
   @override
