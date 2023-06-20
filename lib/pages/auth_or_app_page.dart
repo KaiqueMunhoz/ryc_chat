@@ -7,9 +7,12 @@ import 'package:ryc_chat/pages/loading_page.dart';
 class AuthOrAppPage extends StatelessWidget {
   const AuthOrAppPage({Key? key}) : super(key: key);
 
+  Future<void> init(BuildContext context) async {}
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
+      future: init(context),
       builder: (context, snapshot) {
         return StreamBuilder(
           stream: AuthService().userChanges,
