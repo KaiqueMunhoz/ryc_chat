@@ -76,6 +76,7 @@ class AuthFirebaseService implements AuthService {
 
     credentials.user?.updateDisplayName(name);
     credentials.user?.updatePhotoURL(imageUrl);
+    await _saveChatUser(_toChatUser(credentials.user!));
   }
 
   @override
