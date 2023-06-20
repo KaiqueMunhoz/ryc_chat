@@ -9,6 +9,7 @@ class AuthOrAppPage extends StatelessWidget {
   const AuthOrAppPage({Key? key}) : super(key: key);
 
   Future<void> init(BuildContext context) async {
+    WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
   }
 
