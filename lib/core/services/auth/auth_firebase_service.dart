@@ -31,7 +31,17 @@ class AuthFirebaseService implements AuthService {
     required String email,
     required String password,
     File? image,
-  }) async {}
+  }) async {
+    final auth = FirebaseAuth.instance;
+    final UserCredential credentials = await auth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+
+    if (credentials.user == null) {
+      return;
+    }
+  }
 
   @override
   Stream<ChatUser?> get userChanges {
