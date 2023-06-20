@@ -41,6 +41,8 @@ class AuthFirebaseService implements AuthService {
     if (credentials.user == null) {
       return;
     }
+
+    credentials.user?.updateDisplayName(name);
   }
 
   @override
