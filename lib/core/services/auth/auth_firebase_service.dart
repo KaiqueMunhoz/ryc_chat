@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:ryc_chat/core/models/chat_user.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -33,6 +34,11 @@ class AuthFirebaseService implements AuthService {
 
   Future<String?> _uploadUserImage(File? image, String imageName) async {
     if (image == null) return null;
+
+    final storage = FirebaseStorage.instance;
+    final imageRef = storage.ref().child('user_images').child(imageName);
+    await imageRef.putFile(image).whenComplete(() {});
+    return await imageRef.getDownloadURL();
   }
 
   @override
@@ -52,6 +58,9 @@ class AuthFirebaseService implements AuthService {
     if (credentials.user == null) {
       return;
     }
+
+    final imageName = '${credentials.user!.uid}.jpg';
+    final imageUrl = await _uploadUserImage(image, imageName);
 
     credentials.user?.updateDisplayName(name);
   }
