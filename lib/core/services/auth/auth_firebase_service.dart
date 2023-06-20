@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:ryc_chat/core/models/chat_user.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthFirebaseService implements AuthService {
   static ChatUser? _currentUser;
@@ -20,7 +21,9 @@ class AuthFirebaseService implements AuthService {
   Future<void> login({required String email, required String password}) async {}
 
   @override
-  Future<void> logout() async {}
+  Future<void> logout() async {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Future<void> signup({
