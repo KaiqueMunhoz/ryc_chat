@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:ryc_chat/core/models/chat_user.dart';
 import 'package:ryc_chat/core/services/auth/auth_service.dart';
@@ -39,6 +40,17 @@ class AuthFirebaseService implements AuthService {
     final imageRef = storage.ref().child('user_images').child(imageName);
     await imageRef.putFile(image).whenComplete(() {});
     return await imageRef.getDownloadURL();
+  }
+
+  Future<void> _saveChatUser(ChatUser user) async {
+    final store = FirebaseFirestore.instance;
+    final docRef = store.collection('users').doc(user.id);
+
+    await docRef.set({
+      'name': user.name,
+      'email': user.email,
+      'imageURL': user.imageURL,
+    });
   }
 
   @override
