@@ -31,6 +31,10 @@ class AuthFirebaseService implements AuthService {
     FirebaseAuth.instance.signOut();
   }
 
+  Future<String?> _uploadUserImage(File? image, String imageName) async {
+    if (image == null) return null;
+  }
+
   @override
   Future<void> signup({
     required String name,
